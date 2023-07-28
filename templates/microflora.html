@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<h3>Add Microflora Data</h3>
+<form action="/add_microflora" method="post">
+    <p>Type:
+        <select name="microflora_type" required>
+            <option value="kokki">Kokki</option>
+            <option value="enterobacteria">Enterobacteria</option>
+            <option value="bacilli">Bacilli</option>
+            <option value="microscopic_fungi">Microscopic Fungi</option>
+        </select>
+    </p>
+    <p>Count: <input type="number" name="count" required></p>
+    <p>Temperature: <input type="number" step="0.1" name="temperature" required></p>
+    <p>Humidity: <input type="number" step="0.1" name="humidity" required></p>
+    <p>Illumination: <input type="number" step="0.1" name="illumination" required></p>
+    <p><input type="submit" value="Add Data"></p>
+</form>
+<p><a href="{{ url_for('index') }}">Back to Menu</a></p>
+{% endblock %}

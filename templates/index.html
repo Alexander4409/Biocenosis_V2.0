@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+<hr>
+<h2>Articles list</h2>
+<ul>
+    {% for post in posts %}
+    <li>
+        <p class="title">
+            <a href="/post/{{ post.url }}">{{ post.title }}</a>
+        </p>
+        <div class="announce">{{ post.text[:240] }}</div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
